@@ -41,8 +41,8 @@ qualtrics_raw <- do.call("rbind", list(MC3_raw,
                                        MC4_raw,
                                        MC5_raw))
 
-qualtrics_raw <- qualtrics_raw %>% 
-  rename(response_id = ResponseId)
+#qualtrics_raw <- qualtrics_raw %>% 
+  #rename(response_id = ResponseId)
 
 qualtrics_raw <- (type_convert(qualtrics_raw))
 

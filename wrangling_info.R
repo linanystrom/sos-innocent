@@ -50,3 +50,9 @@ sos_long <-sos_long %>%
       acitivity == "stage_5" ~ 1,
       acitivity == "stage_6" ~ 2
     ))
+
+write.csv(
+  sos_long,
+  "data/sos_long.csv",
+  row.names = FALSE
+)
