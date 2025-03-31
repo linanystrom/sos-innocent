@@ -195,3 +195,34 @@ summary(info_model_3int)
 
 comp_model_anova <- anova(info_model_int, info_model_3int)
 
+## Guilty suspects
+
+guilty_data <- sos_long %>% filter(culp == 1)
+
+# Sum crit info
+
+guilty_model_1 <- lmer(detail
+                     ~ activity  
+                     + critical 
+                     + cond
+                     + (1|mc/ID) 
+                     + (1|interviewer),
+                     data = sos_long,
+                     REML = FALSE)
+
+summary(guilty_model_1)
+
+guilty_model_2 <- lmer(detail
+                       ~ activity  
+                       + critical 
+                       + cond
+                       + critical*cond
+                       + (1|mc/ID) 
+                       + (1|interviewer),
+                       data = sos_long,
+                       REML = FALSE)
+
+summary(guilty_model_2)
+
+
+
